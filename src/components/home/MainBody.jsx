@@ -3,20 +3,30 @@ import Container from "react-bootstrap/Container";
 import Typist from 'react-typist-component';
 import { Jumbotron } from "./migration";
 
+
 const MainBody = React.forwardRef(
   ({ gradient, title, message, icons }, ref) => {
+    
     return (
       <Jumbotron
         fluid
         id="home"
         style={{
-          background: `linear-gradient(136deg,${gradient})`,
-          backgroundSize: "1200% 1200%",
+          backgroundImage: 'url(https://i.ibb.co/R7BYqrz/robotics-bg.png)',
+          backgroundSize: "100%",
         }}
-        className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+        className="title bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
       >
+        {/* <div className="h-100 overflow-hidden" >
+          <img src="https://themes.muffingroup.com/be/robotics/wp-content/uploads/2018/01/robotics-home-sliderbg.png" alt="robotics" style={{
+            position: 'absolute',
+            left: 1000,
+            top: 200,
+            overflow: 'hidden'
+          }} />
+        </div> */}
         <div id="stars"></div>
-        <Container className="text-center">
+        <Container className="text-center ">
           <h1 ref={ref} className="display-1">
             {title}
           </h1>

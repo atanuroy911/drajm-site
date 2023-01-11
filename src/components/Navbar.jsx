@@ -3,7 +3,7 @@ import { useScrollPosition } from "../hooks/useScrollPosition";
 import useResizeObserver from "../hooks/useResizeObserver";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { mainBody, repos, about, skills } from "../editable-stuff/config.js";
+import { mainBody, repos, about, skills, experiences, leadership } from "../editable-stuff/config.js";
 import { NavLink } from "./home/migration";
 
 const Navigation = React.forwardRef((props, ref) => {
@@ -34,15 +34,16 @@ const Navigation = React.forwardRef((props, ref) => {
   return (
     <Navbar
       ref={navbarMenuRef}
-      className={`px-3 fixed-top  ${!isTop ? "navbar-white" : "navbar-transparent"
+      className={`px-3 fixed-top flex ${!isTop ? "navbar-white" : "navbar-transparent"
         }`}
       expand="lg"
     >
-      <Navbar.Brand className="navbar-brand" href={process.env.PUBLIC_URL + "/#home"}>
-        {`<${mainBody.firstName} />`}
+      <Navbar.Brand className={`navbar-brand ${!isTop ? "text-dark" : "text-light"
+        }`} href={process.env.PUBLIC_URL + "/#home"}>
+        {/* {`<${mainBody.firstName} />`} */}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
         <Nav className="navbar-nav mr-auto">
           {/* {
             <NavLink className="nav-item lead">
@@ -51,14 +52,16 @@ const Navigation = React.forwardRef((props, ref) => {
           } */}
           {repos.show && (
 
-            <NavLink
+            <NavLink className={`nav-item lead text-light ${!isTop ? "text-dark" : "text-light"
+          }`}
               href={process.env.PUBLIC_URL + "/#projects"}
             >
               Projects
             </NavLink>
           )}
           <NavLink
-            className="nav-item lead"
+            className={`nav-item lead text-light ${!isTop ? "text-dark" : "text-light"
+          }`}
             href={about.resume}
             target="_blank"
             rel="noreferrer noopener"
@@ -67,15 +70,35 @@ const Navigation = React.forwardRef((props, ref) => {
           </NavLink>
           {about.show && (
             <NavLink
-              className="nav-item lead"
+              className={`nav-item lead ${!isTop ? "text-dark" : "text-light"
+            }`}
               href={process.env.PUBLIC_URL + "/#aboutme"}
             >
               About
             </NavLink>
           )}
+          {experiences.show && (
+            <NavLink
+              className={`nav-item lead ${!isTop ? "text-dark" : "text-light"
+            }`}
+              href={process.env.PUBLIC_URL + "/#experience"}
+            >
+              Experience
+            </NavLink>
+          )}
+          {leadership.show && (
+            <NavLink
+              className={`nav-item lead ${!isTop ? "text-dark" : "text-light"
+            }`}
+              href={process.env.PUBLIC_URL + "/#leadership"}
+            >
+              Leadership
+            </NavLink>
+          )}
           {skills.show && (
             <NavLink
-              className="nav-item lead"
+              className={`nav-item lead ${!isTop ? "text-dark" : "text-light"
+            }`}
               href={process.env.PUBLIC_URL + "/#skills"}
             >
               Skills
